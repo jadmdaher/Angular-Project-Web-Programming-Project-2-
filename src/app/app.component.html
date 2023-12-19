@@ -8,3 +8,17 @@
 </nav>
 <button routerLink="/movie-details">Movie Details</button>
 <router-outlet></router-outlet>
+
+<!-- app.component.html -->
+
+<div class="main_container">
+  <div class="container1">
+    <app-api-test (genreSelected)="onGenreSelected($event)"></app-api-test>
+  </div>
+  <div class="container2">
+    <app-movies [movies]="movies"></app-movies>
+  </div>
+</div>
+<footer id="footer">
+  <div class="navdiv"><a href="#">&lt;&lt;&lt; Previous </a><a href="#">Next &gt;&gt;&gt;</a></div>
+</footer>

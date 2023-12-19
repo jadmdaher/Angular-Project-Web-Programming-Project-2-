@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
+import { EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MovieApiService } from '../services/movie-api.service';
 
@@ -20,6 +21,7 @@ class Genre {
   styleUrl: './api-test.component.css'
 })
 export class ApiTestComponent {
+  @Output() genreSelected = new EventEmitter<number>();
 
   genresList: Genre[] = [];
 
@@ -32,6 +34,10 @@ export class ApiTestComponent {
         this.genresList = genres;
         console.log('api fetched:',genres) 
       });
+  }
+
+  selectGenre(genreId: number): void {
+    this.genreSelected.emit(genreId);
   }
 
 }

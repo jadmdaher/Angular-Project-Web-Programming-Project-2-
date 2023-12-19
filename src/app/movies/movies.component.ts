@@ -1,17 +1,18 @@
 import { Component } from '@angular/core';
+import { Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MovieApiService } from '../services/movie-api.service';
 
 class Movies{
   id:number;
   title:string;
-  overview:string;
+  details:string;
   poster_path:string;
 
-  constructor(id:number, title:string, overview:string, poster_path:string){
+  constructor(id:number, title:string, details:string, poster_path:string){
     this.id=id;
     this.title=title;
-    this.overview=overview;
+    this.details=details;
     this.poster_path=poster_path;
   }
 }
@@ -25,7 +26,7 @@ class Movies{
 })
 export class MoviesComponent {
   
-    moviesList: Movies[] = [];
+    @Input() moviesList: Movies[] = [];
   
     constructor(private movieApiService: MovieApiService) {
     }
