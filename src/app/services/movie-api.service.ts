@@ -40,12 +40,43 @@ export class MovieApiService {
     return moviesObservable.pipe( map((data) => data[dynamicFieldName]));
   }*/
 
-  public getMovies(): Observable<any[]> {
-    let listMoviesEndPoint = 'discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc';
+  public getMoviesByGenre(genre_id: number): Observable<any[]> {
+    let listMoviesEndPoint = 'discover/movie?include_adult=false&include_video=false&language=en-US&page=pageNum&sort_by=popularity.desc&with_genres=' + genre_id;
     let moviesObservable: Observable<any[]>;
     const dynamicFieldName:any = 'movies';
     moviesObservable = this.httpClient.get<any[]>(this.apiBaseUrl + listMoviesEndPoint, this.httpOptions);
     return moviesObservable.pipe( map((data) => data[dynamicFieldName]));
   }
 
+  public getMovieDetails(movieId: number): Observable<any> {
+    let movieDetailsEndPoint = 'movie/' + movieId;
+    let movieDetailsObservable: Observable<any>;
+    const dynamicFieldName:any = 'movieDetails';
+    movieDetailsObservable = this.httpClient.get<any>(this.apiBaseUrl + movieDetailsEndPoint, this.httpOptions);
+    return movieDetailsObservable.pipe( map((data) => data[dynamicFieldName]));
+  }
+
+  public getMovieImages(movieId: number): Observable<any[]> {
+    let movieImagesEndPoint = 'movie/' + movieId + '/images';
+    let movieImagesObservable: Observable<any[]>;
+    const dynamicFieldName:any = 'movieImages';
+    movieImagesObservable = this.httpClient.get<any[]>(this.apiBaseUrl + movieImagesEndPoint, this.httpOptions);
+    return movieImagesObservable.pipe( map((data) => data[dynamicFieldName]));
+  }
+
+  public getMovieTitle(movieId: number): Observable<any> {
+    let movieTitleEndPoint = 'movie/' + movieId;
+    let movieTitleObservable: Observable<any>;
+    const dynamicFieldName:any = 'movieTitle';
+    movieTitleObservable = this.httpClient.get<any>(this.apiBaseUrl + movieTitleEndPoint, this.httpOptions);
+    return movieTitleObservable.pipe( map((data) => data[dynamicFieldName]));
+  }
+
+  public getReleaseDates(movieId: number): Observable<any[]> {
+    let releaseDatesEndPoint = 'movie/' + movieId + '/release_dates';
+    let releaseDatesObservable: Observable<any[]>;
+    const dynamicFieldName:any = 'releaseDates';
+    releaseDatesObservable = this.httpClient.get<any[]>(this.apiBaseUrl + releaseDatesEndPoint, this.httpOptions);
+    return releaseDatesObservable.pipe( map((data) => data[dynamicFieldName]));
+  }
 }

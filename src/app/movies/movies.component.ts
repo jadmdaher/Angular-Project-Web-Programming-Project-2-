@@ -30,12 +30,12 @@ export class MoviesComponent {
     constructor(private movieApiService: MovieApiService) {
     }
   
-    ngOnInit() {
+    /*ngOnInit() {
       this.movieApiService.getMovies().subscribe(
         movies => { 
           this.moviesList = movies;
           console.log('api fetched:',movies) 
         });
-    }
+    }*/
 
 }
