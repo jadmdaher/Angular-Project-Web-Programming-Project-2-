@@ -1,0 +1,7 @@
+button {
+    display:flex;
+    padding: 7px;
+    background-color: rgb(5, 123, 241);
+    color:whitesmoke;
+    border-radius: 5px;
+}

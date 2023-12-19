@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(241, 212, 248);
+    border-radius: 20px;
+    border: 2px solid rgb(255, 79, 205);
+    height: fit-content;
+    justify-content: space-around;
+    width: fit-content;
+    margin: 20px;
+    padding: 20px;
+}
+
+li {
+    margin-bottom: 20px;
+    margin-left: -20px;
+    font-weight: 600;
+}
+
+h3 {
+    margin: 20px;
+}
+
+img {
+    width:38px;
+    border: 0px;
+    margin-left: -25px;
+    margin-top: -23px;
+}
