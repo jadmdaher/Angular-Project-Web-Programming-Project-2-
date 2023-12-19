@@ -1,0 +1,9 @@
+<div class="container">
+    <img src="assets/logo.png" >
+    <ul>
+        <li (click)="selectItem(i)"  *ngFor="let item of menuItems;index as i">
+            <a href="#" >{{item}}</a>
+        </li>
+
+    </ul>
+    <app-child item="{{menuItems[itemSelected]}}" (updateEvent)="processUpdate($event)"></app-child>
